@@ -848,5 +848,5 @@ and press Enter.
 <img width="773" height="493" alt="Screenshot 2025-09-26 at 4 55 20 pm" src="https://github.com/user-attachments/assets/f7b04ac6-b7f6-4dbb-bcee-2dc299384ec2" />
 
 
-### Step 61:
-Congratulations! You've completed the Practice section.
+---
+
