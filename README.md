@@ -863,7 +863,21 @@ Hints:
 1. Add a comment (# create a t3.micro ec2 instance for the web server in a private egress subnet and vpc.availability_zones[1]) to the cdkapp_stack.py file to create a new EC2 instance.
 2. The new EC2 instance configuration should contain the following:
       availability_zone=vpc.availability_zones[1]
-3. Specify the instance role for the new instance with the following:
+
+Should look like this
+```bash
+        ec2_instance = ec2.Instance(self, "MyInstance1",
+            instance_type = ec2.InstanceType("t3.micro"),
+            machine_image = amzn_linux,
+            vpc = vpc,
+            vpc_subnets = ec2.SubnetSelection(subnet_type = ec2.SubnetType.PRIVATE_WITH_EGRESS),
+            availability_zone = vpc.availability_zones[1],
+            user_data = ec2_user_data,
+            security_group = ec2_sg,
+            role = iam.Role.from_role_name(self, "ec2_instance_role2", "ec2_instance_role")
+        )     
+```
+4. Specify the instance role for the new instance with the following:
 ```bash
 role=iam.Role.from_role_name(self, "ec2 _instance_role2", "ec2_instance_role")
 ```
