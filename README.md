@@ -2,13 +2,15 @@
 
 Speed up and automate the deployment and management of cloud infrastructure by using the AWS Cloud Development Kit (AWS CDK) and Amazon Q.
 
+<img width="1661" height="934" alt="screenshot_20250926200843" src="https://github.com/user-attachments/assets/98e55321-dda5-4f23-a7ef-420eda9525c7" />
+
 In this practice lab, you will:
 
 - Create various AWS resources by using the AWS CDK and Amazon Q.
 - Deploy an application by using the AWS CDK and Amazon Q.
 - Test the application by using an Application Load Balancer.
 
-<img width="965" height="526" alt="Screenshot 2025-09-26 at 2 54 28 pm" src="https://github.com/user-attachments/assets/9e42b7ae-56b6-4475-aa20-a1e187812055" />
+
 
 ## Introduction
 
@@ -850,3 +852,27 @@ and press Enter.
 
 ---
 
+# Addition task
+
+Update the CDK application code to create and deploy a new Amazon EC2 instance in a different Availability Zone.
+Configure the new EC2 instance in the load balancer.
+Test the application.
+
+## Hint 
+Hints:
+1. Add a comment (# create a t3.micro ec2 instance for the web server in a private egress subnet and vpc.availability_zones[1]) to the cdkapp_stack.py file to create a new EC2 instance.
+2. The new EC2 instance configuration should contain the following:
+      availability_zone=vpc.availability_zones[1]
+3. Specify the instance role for the new instance with the following:
+```bash
+role=iam.Role.from_role_name(self, "ec2 _instance_role2", "ec2_instance_role")
+```
+4. Deploy the updated stack by using the command.
+```bash
+cdk deploy
+```
+6. Update the targets for the load balancer with the new EC2 instance.
+7. Test the application to ensure that the new Availability Zone is listed.
+
+
+---
