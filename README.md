@@ -442,8 +442,8 @@ and press Enter.
 1. To create an Amazon Aurora MySQL-Compatible Edition cluster, type:
 
 ```bash
-           #  create an rds aurora mysql cluster
-           cluster = rds.DatabaseCluster(self, "MyDatabase",
+        # create an rds aurora mysql cluster
+        cluster = rds.DatabaseCluster(self, "MyDatabase",
             engine = rds.DatabaseClusterEngine.aurora_mysql(version = rds.AuroraMysqlEngineVersion.VER_3_04_0),
             # credentials using testuser and password1234!
             credentials = rds.Credentials.from_password("testuser", SecretValue.unsafe_plain_text("password1234!")),
