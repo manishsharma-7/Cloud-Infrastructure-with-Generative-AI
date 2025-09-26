@@ -405,40 +405,44 @@ and press Enter.
 3. To accept the suggestion, press Tab.
 4. Go to the next step.
 
+<img width="893" height="582" alt="Screenshot 2025-09-26 at 4 32 42 pm" src="https://github.com/user-attachments/assets/57265fff-2375-478a-af21-1280549ecead" />
 
 
 
 ### Step 27:
 1. To allow traffic for the RDS DB instance from the EC2 instance on port 3306, type:
-
-            add ingress rule to RDS security group to allow 3306 traffic from EC2 security group
-
+```bash
+# add ingress rule to RDS security group to allow 3306 traffic from EC2 security group
+```
 and press Enter.
 
 2. Review the Amazon Q suggestion.
 3. To accept the suggestion, press Tab.
 4. Go to the next step.
 
+<img width="869" height="577" alt="Screenshot 2025-09-26 at 4 40 27 pm" src="https://github.com/user-attachments/assets/1605470d-400e-4606-a1f1-6494bf1f36dc" />
 
 
 ### Step 28:
 1. To allow traffic for the RDS DB instance from the EC2 instance on port 22, type:
-
-            add ingress rule for the RDS security group to allow 22 from the EC2 instance
-
+```bash
+# add ingress rule for the RDS security group to allow 22 from the EC2 instance
+```
 and press Enter.
 
 2. Review the Amazon Q suggestion.
 3. To accept the suggestion, press Tab.
 4. Go to the next step.
+   
+<img width="837" height="524" alt="Screenshot 2025-09-26 at 4 40 54 pm" src="https://github.com/user-attachments/assets/16946307-1d19-4953-a920-add6d2cbc92a" />
 
 
 
 ### Step 29:
 1. To create an Amazon Aurora MySQL-Compatible Edition cluster, type:
 
-   create an rds aurora mysql cluster
-
+```bash
+           #  create an rds aurora mysql cluster
            cluster = rds.DatabaseCluster(self, "MyDatabase",
             engine = rds.DatabaseClusterEngine.aurora_mysql(version = rds.AuroraMysqlEngineVersion.VER_3_04_0),
             # credentials using testuser and password1234!
@@ -452,14 +456,14 @@ and press Enter.
             },
             instances = 1
             )
-
+```
 and press Enter.
 
 - Make sure to indent the construct with the construct above it.
 
 2. Go to the next step.
 
-
+<img width="837" height="562" alt="Screenshot 2025-09-26 at 4 41 45 pm" src="https://github.com/user-attachments/assets/b455eb2a-8766-4b80-8a12-1153f80111bb" />
 
 ### Step 30:
 1. Review the Aurora cluster construct. 
@@ -469,51 +473,57 @@ and press Enter.
 
 2. Go to the next step.
 
+<img width="889" height="579" alt="Screenshot 2025-09-26 at 4 42 04 pm" src="https://github.com/user-attachments/assets/b29e6a1b-7064-4154-817e-f01c763fd7b6" />
 
 
 ### Step 31:
 1. To create an Amazon Linux 2023 image, type:
-
-            define an Amazon Linux 2023 image amzn_linux
+```bash
+# define an Amazon Linux 2023 image amzn_linux
+```
 
 2. Review the Amazon Q suggestion.
 3. To accept the suggestion, press Tab.
 4. Go to the next step.
+
+<img width="798" height="501" alt="Screenshot 2025-09-26 at 4 42 31 pm" src="https://github.com/user-attachments/assets/48b09aa1-fcc5-4ed0-8005-384a0daf6171" />
 
 
 
 ### Step 32:
 1. To read the userdata.sh file, type:
-
-            read userdata.sh file from cdkapp directory using readlines
-
+```bash
+# read userdata.sh file from cdkapp directory using readlines
+```
 and press Enter.
 
 2. Review the Amazon Q suggestion.
 3. To accept the suggestion, press Tab.
 4. Go to the next step.
+   
+<img width="829" height="543" alt="Screenshot 2025-09-26 at 4 43 02 pm" src="https://github.com/user-attachments/assets/8a44d59c-4b72-4324-bee6-45f9a42531dc" />
 
 
 
 ### Step 33:
 1. To add lines from the userdata.sh file to ec2 UserData, type:
-
-            Add each line from the script to ec2 UserData
-
+```bash
+# Add each line from the script to ec2 UserData
+```
 and press Enter.
 
 2. Review the Amazon Q suggestion.
 3. To accept the suggestion, press Tab.
 4. Go to the next step.
 
+<img width="880" height="546" alt="Screenshot 2025-09-26 at 4 43 45 pm" src="https://github.com/user-attachments/assets/7ec73081-03eb-467f-b467-16c3455d7f7f" />
 
 
 ### Step 34:
 1. To create an EC2 instance for the web server in a private egress subnet, type:
-
-            create a t3.micro ec2 instance for the web server in a private egress subnet and vpc.availability_zones[0]
 ```bash
- ec2_instance = ec2.Instance(self, "MyInstance",
+# create a t3.micro ec2 instance for the web server in a private egress subnet and vpc.availability_zones[0]
+ec2_instance = ec2.Instance(self, "MyInstance",
             instance_type = ec2.InstanceType("t3.micro"),
             machine_image = amzn_linux,
             vpc = vpc,
@@ -529,6 +539,7 @@ and press Enter.
 
 2. Go to the next step.
 
+<img width="819" height="575" alt="Screenshot 2025-09-26 at 4 44 20 pm" src="https://github.com/user-attachments/assets/b13d7d2f-4292-4ae8-a9f9-1ae88f0de773" />
 
 
 
@@ -539,66 +550,71 @@ and press Enter.
 - The ec2_instance_role already created as part of the lab prebuild process, is used for the EC2 instance.
 
 2. To add a wait dependency on the RDS cluster, at the end of the construct, type:
-
-            add depends to ensure
-
+```bash
+# add depends to ensure
+```
 and press Enter.
 
 3. Review the Amazon Q suggestion.
 4. To accept the suggestion, press Tab.
 5. Go to the next step.
 
+<img width="820" height="521" alt="Screenshot 2025-09-26 at 4 44 54 pm" src="https://github.com/user-attachments/assets/00f5eee6-b02d-45a0-accc-e603c2b9a6b4" />
 
 
 ### Step 36:
 1. To create a load balancer, type:
-
-            create a load balancer in the public subnet
-
+```bash
+# create a load balancer in the public subnet
+```
 and press Enter.
 
 2. Review the Amazon Q suggestion.
 3. To accept the suggestion, press Tab.
 4. Go to the next step.
 
+<img width="863" height="552" alt="Screenshot 2025-09-26 at 4 45 18 pm" src="https://github.com/user-attachments/assets/28a7cd23-7f56-46d0-88fb-8dc36d74dc77" />
 
 
 ### Step 37:
 1. To create a listener for the load balancer, type:
-
-            add a listener on port 80 to the load balancer with open=True
-
+```bash
+# add a listener on port 80 to the load balancer with open=True
+```
 and press Enter.
 
 2. Review the Amazon Q suggestion.
 3. To accept the suggestion, press Tab.
 4. Go to the next step.
 
+<img width="830" height="555" alt="Screenshot 2025-09-26 at 4 45 41 pm" src="https://github.com/user-attachments/assets/751ab984-5df1-4d5d-ad16-3c023948ccee" />
 
 
 ### Step 38:
 1. To add targets to the load balancer, type:
-
-            add targets to the load balancer using port 80
+```bash
+# add targets to the load balancer using port 80
 listener.add_targets("MyTargets", port=80 )
-
+```
 and press Enter.
 
 2. Go to the next step.
 
+<img width="830" height="506" alt="Screenshot 2025-09-26 at 4 48 55 pm" src="https://github.com/user-attachments/assets/15ed69f1-dc9b-41ca-bb4f-1930111e2478" />
 
 
 ### Step 39:
 1. To deploy the web server after the the RDS DB cluster is available, type:
-
-            add depends on for the listener to wait for the ec2 instance 
-
+```bash
+# add depends on for the listener to wait for the ec2 instance 
+```
 and press Enter.
 
 2. Review the Amazon Q suggestion.
 3. To accept the suggestion, press Tab.
 4. Go to the next step.
 
+<img width="856" height="553" alt="Screenshot 2025-09-26 at 4 49 10 pm" src="https://github.com/user-attachments/assets/c3cd16ee-9971-4391-9e67-7442ae696264" />
 
 
 ### Step 40:
@@ -610,6 +626,7 @@ and press Enter.
 
 3. Go to the next step.
 
+<img width="869" height="551" alt="Screenshot 2025-09-26 at 4 49 27 pm" src="https://github.com/user-attachments/assets/e8de3680-672b-403e-81fd-779d676089b3" />
 
 
 ### Step 41:
@@ -617,32 +634,39 @@ and press Enter.
 
 1. Return to the Code Editor IDE browser tab.
 2. To synthesize the CDK stack, in the bottom terminal window, run:
-
+```bash
 cdk synth
-
+```
 - Remember, if there are any errors when running cdk synth, you can reference the ci_genai_stack.py from a previous step to troubleshoot.
 
 3. Go to the next step.
 
+<img width="921" height="622" alt="Screenshot 2025-09-26 at 4 49 57 pm" src="https://github.com/user-attachments/assets/775ac478-925b-4250-b676-bf2ee45fa222" />
 
 
 ### Step 42:
 1. Review the stack details.
 2. To deploy the cdkapp stack, run:
-
+```bash
 cdk deploy
-
+```
 3. Go to the next step.
 
+<img width="700" height="608" alt="Screenshot 2025-09-26 at 4 50 16 pm" src="https://github.com/user-attachments/assets/0bcc1644-5e3c-4bef-98e8-93a597508aa0" />
 
 
 ### Step 43:
 1. Review the stack components.
 2. For "Do you wish to deploy these changes (y/n)?", type:
+```bash
     y
+```
 and press Enter.
 
 3. Go to the next step.
+
+<img width="858" height="652" alt="Screenshot 2025-09-26 at 4 50 53 pm" src="https://github.com/user-attachments/assets/f47dcfd4-5067-4b8a-9c94-08545923ddbe" />
+
 
 
 ### Step 44:
@@ -652,13 +676,14 @@ and press Enter.
 
 2. Go to the next step.
 
-
+<img width="812" height="604" alt="Screenshot 2025-09-26 at 4 51 05 pm" src="https://github.com/user-attachments/assets/4a26fdfa-cd6e-43b9-8368-115a9beb747e" />
 
 
 ### Step 45:
 1. After the deployment is completed, review the stack ARN.
 2. Go to the next step.
 
+<img width="913" height="642" alt="Screenshot 2025-09-26 at 4 51 23 pm" src="https://github.com/user-attachments/assets/5f684a35-6e70-4a55-8c89-fc02f85f22f9" />
 
 
 
@@ -668,6 +693,7 @@ and press Enter.
 3. Click CdkappStack.
 4. Go to the next step.
 
+<img width="943" height="557" alt="Screenshot 2025-09-26 at 4 51 40 pm" src="https://github.com/user-attachments/assets/0fc8bc4e-cd03-446a-9dd8-551c6ec53c96" />
 
 
 
@@ -680,6 +706,7 @@ and press Enter.
 3. Go to the next step.
 
 
+<img width="927" height="568" alt="Screenshot 2025-09-26 at 4 51 56 pm" src="https://github.com/user-attachments/assets/e060e808-9018-4611-bf18-a2104e3fdae9" />
 
 
 ### Step 48:
@@ -693,6 +720,7 @@ and press Enter.
 
 3. Go to the next step.
 
+<img width="864" height="562" alt="Screenshot 2025-09-26 at 4 52 14 pm" src="https://github.com/user-attachments/assets/bee804b1-23a3-406f-8003-29a67003678c" />
 
 
 
@@ -700,6 +728,7 @@ and press Enter.
 1. In the Details section, review the load balancer details.
 2. Go to the next step.
 
+<img width="914" height="533" alt="Screenshot 2025-09-26 at 4 52 37 pm" src="https://github.com/user-attachments/assets/3708049c-09b7-47d1-b21b-54e936fb1798" />
 
 
 
@@ -710,6 +739,7 @@ and press Enter.
 
 2. Go to the next step.
 
+<img width="896" height="544" alt="Screenshot 2025-09-26 at 4 52 50 pm" src="https://github.com/user-attachments/assets/e521ffe4-201a-4057-95cc-2b3f67426953" />
 
 
 
@@ -718,12 +748,14 @@ and press Enter.
 1. In the Details section, review the target group details.
 2. Go to the next step.
 
+<img width="919" height="569" alt="Screenshot 2025-09-26 at 4 53 06 pm" src="https://github.com/user-attachments/assets/19346833-b241-481d-926e-2d986b0bdcba" />
 
 
 ### Step 52:
 1. On the Targets tab, click Register targets.
 2. Go to the next step.
 
+<img width="922" height="585" alt="Screenshot 2025-09-26 at 4 53 17 pm" src="https://github.com/user-attachments/assets/8137eb68-319d-44a8-adc0-073316d26af8" />
 
 
 
@@ -736,6 +768,7 @@ and press Enter.
 3. Click Include as pending below.
 4. Go to the next step.
 
+<img width="911" height="554" alt="Screenshot 2025-09-26 at 4 53 27 pm" src="https://github.com/user-attachments/assets/3e595046-dff4-47e4-a1f7-f9afe5c64f15" />
 
 
 
@@ -744,12 +777,14 @@ and press Enter.
 2. Click Register pending targets.
 3. Go to the next step.
 
-
+<img width="951" height="573" alt="Screenshot 2025-09-26 at 4 53 38 pm" src="https://github.com/user-attachments/assets/325ab8e7-ec0a-4f70-b242-c796e3ed2b18" />
 
 
 ### Step 55:
 1. On the Targets tab, review the instance details.
 2. Go to the next step.
+
+<img width="929" height="588" alt="Screenshot 2025-09-26 at 4 53 59 pm" src="https://github.com/user-attachments/assets/8b61582a-c83e-47b7-b6a1-efce97ca3d8d" />
 
 
 
@@ -763,6 +798,7 @@ and press Enter.
 2. Scroll up to Details.
 3. Go to the next step.
 
+<img width="936" height="569" alt="Screenshot 2025-09-26 at 4 54 09 pm" src="https://github.com/user-attachments/assets/542ffff3-a04e-4a51-a60d-870a7805bc23" />
 
 
 
@@ -774,13 +810,14 @@ and press Enter.
 
 2. Go to the next step.
 
-
+<img width="902" height="548" alt="Screenshot 2025-09-26 at 4 54 26 pm" src="https://github.com/user-attachments/assets/5e881b0b-ad13-42c9-b522-3fe5939a2391" />
 
 
 ### Step 58:
 1. Under DNS name, click the copy icon to copy the load balancer URL.
 2. Go to the next step.
 
+<img width="927" height="587" alt="Screenshot 2025-09-26 at 4 54 45 pm" src="https://github.com/user-attachments/assets/3e2aabe3-6554-482a-ac82-3c68209211cf" />
 
 
 ### Step 59:
@@ -795,6 +832,7 @@ and press Enter.
 3. Click Submit.
 4. Go to the next step.
 
+<img width="775" height="495" alt="Screenshot 2025-09-26 at 4 54 59 pm" src="https://github.com/user-attachments/assets/60908c66-a438-4a38-bd4b-44cb6cc1db68" />
 
 
 
@@ -807,6 +845,7 @@ and press Enter.
 
 3. Go to the next step.
 
+<img width="773" height="493" alt="Screenshot 2025-09-26 at 4 55 20 pm" src="https://github.com/user-attachments/assets/f7b04ac6-b7f6-4dbb-bcee-2dc299384ec2" />
 
 
 ### Step 61:
