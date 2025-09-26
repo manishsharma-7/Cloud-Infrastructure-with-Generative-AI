@@ -171,14 +171,17 @@ source .venv/bin/activate
 
 - Remember, on the top navigation bar, you can use the Services search box (or click Services) to navigate to a different service console.
 
-2. On the General purpose buckets tab, click the bucket name that starts with lab-bucket-.
-3. Go to the next step.
+2. On the General purpose buckets tab, Create a new bucket with name "lab-bucket-XXXXX"
+3. Upload Files from the resource folder to the bucket.
+4. Go to the next step.
 
+<img width="945" height="572" alt="Screenshot 2025-09-26 at 3 57 19 pm" src="https://github.com/user-attachments/assets/b6c3e9a7-5a92-43c3-a830-1cffc20519da" />
 
+<img width="459" height="331" alt="Screenshot 2025-09-26 at 4 02 48 pm" src="https://github.com/user-attachments/assets/eb3b228d-9e2c-4311-a65c-69e930e4b893" />
 
 
 ### Step 14:
-1. On the Objects tab, review the files that were created as part of the prebuild process.
+1. On the Objects tab, review the files that were created as part of the previous step.
 
 - The ci_genai_stack.py contains the resources that you build in the next steps. You can use this file as a reference to check that all the resources are configured in your stack.
 - The vpcapp.zip file contains the data and the files for a census application.
@@ -191,6 +194,7 @@ source .venv/bin/activate
 
 4. Go to the next step.
 
+<img width="792" height="580" alt="Screenshot 2025-09-26 at 4 03 35 pm" src="https://github.com/user-attachments/assets/e3d2c007-0e28-45a2-a55b-67d43fd633cd" />
 
 
 ### Step 15:
@@ -212,7 +216,7 @@ source .venv/bin/activate
 6. Open (double-click) the userdata.sh file.
 7. Go to the next step.
 
-
+<img width="907" height="468" alt="Screenshot 2025-09-26 at 4 05 49 pm" src="https://github.com/user-attachments/assets/e5988b3b-0432-45d4-85b3-053097ca18b3" />
 
 
 ### Step 16:
@@ -225,6 +229,7 @@ source .venv/bin/activate
 
 2. Go to the next step.
 
+<img width="956" height="605" alt="Screenshot 2025-09-26 at 4 07 28 pm" src="https://github.com/user-attachments/assets/bd8b23c9-b2e3-4a1a-a2ea-5399b5975ffa" />
 
 
 
@@ -245,6 +250,8 @@ source .venv/bin/activate
 6. Click the X to close the file.
 7. Go to the next step.
 
+<img width="949" height="599" alt="Screenshot 2025-09-26 at 4 08 22 pm" src="https://github.com/user-attachments/assets/e2aba19c-c3fc-4a7b-ad1c-059c4873bd02" />
+
 
 
 ### Step 18:
@@ -256,6 +263,7 @@ source .venv/bin/activate
 
 4. Go to the next step.
 
+<img width="875" height="665" alt="Screenshot 2025-09-26 at 4 09 55 pm" src="https://github.com/user-attachments/assets/420dd393-0324-4525-b929-72f5f84bbc56" />
 
 
 
@@ -270,11 +278,12 @@ source .venv/bin/activate
 
 3. Go to the next step.
 
+<img width="872" height="566" alt="Screenshot 2025-09-26 at 4 10 47 pm" src="https://github.com/user-attachments/assets/f35ed51b-690b-442a-97f1-7b586c8e8ddc" />
 
 
 ### Step 20:
 1. In the top cdkapp_stack.py window, in the aws_cdk import block, delete the existing import values, and then copy-paste the following:
-
+```bash
 Duration,
 Stack,
 SecretValue,
@@ -282,11 +291,11 @@ aws_ec2 as ec2,
 aws_rds as rds,
 aws_iam as iam,
 aws_elasticloadbalancingv2 as elbv2,
-
+```
 2. In the def init method, select (highlight) and delete the comments.
 3. Go to the next step.
 
-
+<img width="857" height="620" alt="Screenshot 2025-09-26 at 4 12 42 pm" src="https://github.com/user-attachments/assets/17b62509-6ef1-42f5-8c80-170b5edbd281" />
 
 
 ### Step 21:
@@ -297,9 +306,9 @@ aws_elasticloadbalancingv2 as elbv2,
 - The resource names that you see might differ from the screenshot examples.
 
 1. To create a VPC, in the top cdkapp_stack.py window, type:
-
-       create a vpc with IpAddresses 10.10.0.0/16, a NAT gateway, a public subnet, PRIVATE_WITH_EGRESS subnet and a RDS subnet
-
+```bash
+# create a vpc with IpAddresses 10.10.0.0/16, a NAT gateway, a public subnet, PRIVATE_WITH_EGRESS subnet and a RDS subnet
+```
 and press Enter.
 
 - You can also copy-paste this construct. If you receive an undefined value when you paste this, try again. The construct should look similar to what is displayed in the screenshot example.
@@ -314,13 +323,14 @@ and press Enter.
 3. On your keyboard, press the Tab key to accept the suggestion.
 4. Go to the next step.
 
+<img width="944" height="634" alt="Screenshot 2025-09-26 at 4 15 29 pm" src="https://github.com/user-attachments/assets/9b563cd1-75ad-4275-b3ad-1c47a54f55f0" />
 
 
 ### Step 22:
 1. To create a security group for the load balancer, type:
-
-            create a security group for the load balancer
-
+```bash
+# create a security group for the load balancer
+```
 and press Enter.
 
 - Make sure to align it under the vpc block.
@@ -332,13 +342,14 @@ and press Enter.
 3. To accept the suggestion, press Tab.
 4. Go to the next step.
 
+<img width="821" height="585" alt="Screenshot 2025-09-26 at 4 18 44 pm" src="https://github.com/user-attachments/assets/d337de61-88e6-4a6d-8a3c-b3506b6742e2" />
 
 
 ### Step 23:
 1. To create a security group for the RDS instance, type:
-
-            create a security group for the RDS instance
-
+```bash
+# create a security group for the RDS instance
+```
 and press Enter.
 
 2. Review the Amazon Q suggestion.
@@ -349,26 +360,27 @@ and press Enter.
 
 4. Go to the next step.
 
-
+<img width="782" height="514" alt="Screenshot 2025-09-26 at 4 25 30 pm" src="https://github.com/user-attachments/assets/04d893ad-4685-4b54-973d-9d3d7602d8ea" />
 
 ### Step 24:
 1. To create a security group for the EC2 instance, type:
-
-            create a security group for the EC2 instance
-
+```bash
+   # create a security group for the EC2 instance
+```
 and press Enter.
 
 2. Review the Amazon Q suggestion.
 3. To accept the suggestion, press Tab.
 4. Go to the next step.
 
+<img width="843" height="604" alt="Screenshot 2025-09-26 at 4 26 24 pm" src="https://github.com/user-attachments/assets/b5ca3200-81cb-434a-8225-a86a7631ba0c" />
 
 
 ### Step 25:
 1. To add inbound rules to the load balancer, type:
-
-            add ingress rules for the load balancer security group to allow all traffic on port 80
-
+```bash
+# add ingress rules for the load balancer security group to allow all traffic on port 80
+```
 and press Enter.
 
 2. Review the Amazon Q suggestion.
@@ -378,14 +390,15 @@ and press Enter.
 3. To accept the suggestion, press Tab.
 4. Go to the next step.
 
+<img width="791" height="528" alt="Screenshot 2025-09-26 at 4 29 06 pm" src="https://github.com/user-attachments/assets/a8e88eb0-24e6-4879-8500-d05cf09d144c" />
 
 
 
 ### Step 26:
 1. To allow traffic from the load balancer to the EC2 instance, type:
-
-            add ingress rule for the EC2 instance security group to allow 8443 traffic from the load balancer
-
+```bash
+# add ingress rule for the EC2 instance security group to allow 8443 traffic from the load balancer
+```
 and press Enter.
 
 2. Review the Amazon Q suggestion.
