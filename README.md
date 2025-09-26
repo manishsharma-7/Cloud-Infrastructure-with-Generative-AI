@@ -26,6 +26,9 @@ In this practice lab, you will:
 1. In the top navigation bar search box, type:  
    `sagemaker ai`
 2. In the search results, under Services, click **Amazon SageMaker AI**.
+   
+   <img width="712" height="604" alt="Screenshot 2025-09-26 at 3 42 10 pm" src="https://github.com/user-attachments/assets/0d1fda5f-1ed5-4251-a139-bb36b955d67b" />
+
 
 ### Step 2
 
@@ -33,10 +36,16 @@ In this practice lab, you will:
 2. On the Amazon SageMaker Studio home page, click **Open Studio**.  
    - SageMaker Studio opens in a new browser tab (or window). Keep the current browser tab open. You return to the AWS Management Console in a later step.
 
+<img width="704" height="476" alt="Screenshot 2025-09-26 at 3 43 16 pm" src="https://github.com/user-attachments/assets/af45da90-6c4b-48cd-a9a7-68190e25b63b" />
+
+
 ### Step 3
 
 1. If the Welcome pop-up box appears, click **Skip Tour** for now.  
    - You are welcome to take the tour, but it is not covered in this practice lab.
+
+<img width="717" height="523" alt="Screenshot 2025-09-26 at 3 43 41 pm" src="https://github.com/user-attachments/assets/8b45174c-a2aa-4dce-b1c2-3fb3ef21f18f" />
+
 
 ### Step 4
 
@@ -45,11 +54,17 @@ In this practice lab, you will:
    - The Code Editor application takes a few minutes to start.
 3. Go to the next step.
 
+<img width="952" height="651" alt="Screenshot 2025-09-26 at 3 44 19 pm" src="https://github.com/user-attachments/assets/3990f9f1-fd79-4d94-a93e-bf007b5c44ad" />
+
 ### Step 5
 
 1. Under Action, click **Open**.  
    - The Code Editor application opens in a new browser tab (or window).
 2. Go to the next step.
+
+<img width="929" height="657" alt="Screenshot 2025-09-26 at 3 44 53 pm" src="https://github.com/user-attachments/assets/c00aba0b-996d-48ac-982b-d0f36383b5b4" />
+
+
 
 ### Step 6
 
@@ -59,6 +74,9 @@ In this practice lab, you will:
 2. On the Welcome tab, review the content, and then click the **X** to close the tab.
 3. Go to the next step.
 
+<img width="883" height="465" alt="Screenshot 2025-09-26 at 3 45 39 pm" src="https://github.com/user-attachments/assets/f2201ff3-1feb-485a-9979-797bc69236e0" />
+
+
 ### Step 7
 
 1. To view the Explorer window, in the left sidebar, click the **Exploration (two folders) icon**.
@@ -67,12 +85,17 @@ In this practice lab, you will:
 4. Click **OK**.
 5. Go to the next step.
 
+<img width="815" height="331" alt="Screenshot 2025-09-26 at 3 46 17 pm" src="https://github.com/user-attachments/assets/8814b31e-1383-4de4-8686-eb20f590d7c3" />
+
 ### Step 8
 
 1. In the pop-up box, choose the check box to select **Trust the authors of all files ...**.
 2. Click **Yes, I trust the authors**.  
    - If the Welcome tab reappears, click the **X** to close the tab.
 3. Go to the next step.
+
+<img width="728" height="493" alt="Screenshot 2025-09-26 at 3 47 49 pm" src="https://github.com/user-attachments/assets/61fd126b-446b-4733-9311-49e7927cbf66" />
+
 
 ### Step 9
 
@@ -81,6 +104,9 @@ In this practice lab, you will:
 3. Choose **New Terminal**.  
    - A command shell is launched.
 4. Go to the next step.
+
+<img width="665" height="534" alt="Screenshot 2025-09-26 at 3 48 16 pm" src="https://github.com/user-attachments/assets/92fe1533-7dd0-404a-a796-bef340148f17" />
+
 
 ### Step 10
 
@@ -111,7 +137,7 @@ In this practice lab, you will:
 
 5. Go to the next step.
 
-
+<img width="832" height="572" alt="Screenshot 2025-09-26 at 3 48 55 pm" src="https://github.com/user-attachments/assets/12bf0073-abc3-4513-9d8a-460dc0b8445e" />
 
 
 ### Step 11:
@@ -121,6 +147,7 @@ In this practice lab, you will:
 
 2. Go to the next step.
 
+<img width="915" height="619" alt="Screenshot 2025-09-26 at 3 51 46 pm" src="https://github.com/user-attachments/assets/81dd673f-1935-43d7-a65a-d5c062a3db65" />
 
 
 ### Step 12:
@@ -136,6 +163,7 @@ source .venv/bin/activate
 
 5. Go to the next step.
 
+<img width="897" height="484" alt="Screenshot 2025-09-26 at 3 52 13 pm" src="https://github.com/user-attachments/assets/20e0ece0-10a7-4291-bfa0-e2aace9c0d16" />
 
 
 ### Step 13:
