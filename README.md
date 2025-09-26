@@ -1,7 +1,9 @@
-<img width="66" height="961" alt="image" src="https://github.com/user-attachments/assets/208d816d-c965-448b-882a-fc2ba7dbff15" /># Cloud-Infrastructure-with-Generative-AI
+# Cloud-Infrastructure-with-Generative-AI
+
 Speed up and automate the deployment and management of cloud infrastructure by using the AWS Cloud Development Kit (AWS CDK) and Amazon Q.
 
 In this practice lab, you will:
+
 - Create various AWS resources by using the AWS CDK and Amazon Q.
 - Deploy an application by using the AWS CDK and Amazon Q.
 - Test the application by using an Application Load Balancer.
@@ -9,6 +11,7 @@ In this practice lab, you will:
 <img width="965" height="526" alt="Screenshot 2025-09-26 at 2 54 28 pm" src="https://github.com/user-attachments/assets/9e42b7ae-56b6-4475-aa20-a1e187812055" />
 
 ## Introduction
+
 - This solution uses the AWS Cloud Development Kit (AWS CDK) and Amazon Q to speed up the adoption of Infrastructure as Code (laC) to deploy applications and infrastructure in a repeatable manner.
 - With the help of Amazon Q auto-suggestions, the infrastructure can be defined by using AWS CDK code constructs on integrated development environments (IDEs) such as Code Editor in Amazon SageMaker Studio, Visual Studio Code, PyCharm, and IntelliJ.
 - AWS Toolkit and AWS Identity and Access Management (IAM) credentials enable the AWS CDK and Amazon Q on IDEs.
@@ -18,104 +21,100 @@ In this practice lab, you will:
 - The infrastructure can be modified with minimal impact by using the CDK to add or remove resources from the deployed CloudFormation templates.
 
 
--- Step 1:
-1. In the top navigation bar search box, type:
-      sagemaker ai
-2. In the search results, under Services, click Amazon SageMaker AI.
+### Step 1
 
--- Step 2:
-1. In the left navigation pane, under Applications and IDEs, click Studio.
-2. On the Amazon SageMaker Studio home page, click Open Studio.
-    - SageMaker Studio opens in a new browser tab (or window). Keep the current browser tab open. You return to the AWS Management Console in a later step.
+1. In the top navigation bar search box, type:  
+   `sagemaker ai`
+2. In the search results, under Services, click **Amazon SageMaker AI**.
 
+### Step 2
 
--- Step 3:
-1. If the Welcome pop-up box appears, click Skip Tour for now.
-    - You are welcome to take the tour, but it is not covered in this practice lab.
+1. In the left navigation pane, under **Applications and IDEs**, click **Studio**.
+2. On the Amazon SageMaker Studio home page, click **Open Studio**.  
+   - SageMaker Studio opens in a new browser tab (or window). Keep the current browser tab open. You return to the AWS Management Console in a later step.
 
+### Step 3
 
+1. If the Welcome pop-up box appears, click **Skip Tour** for now.  
+   - You are welcome to take the tour, but it is not covered in this practice lab.
 
--- Step 4:
-1. In the Applications pane, click Code Editor.
-2. On the Code Editor page, for the Code Editor application, under Action, click Run.
+### Step 4
 
-- The Code Editor application takes a few minutes to start.
-
+1. In the Applications pane, click **Code Editor**.
+2. On the Code Editor page, for the Code Editor application, under Action, click **Run**.  
+   - The Code Editor application takes a few minutes to start.
 3. Go to the next step.
 
+### Step 5
 
-
--- Step 5:
-1. Under Action, click Open.
-
-- The Code Editor application opens in a new browser tab (or window).
-
+1. Under Action, click **Open**.  
+   - The Code Editor application opens in a new browser tab (or window).
 2. Go to the next step.
 
+### Step 6
 
--- Step 6:
 - On the new Welcome tab, you have an option to choose a theme, which defines your overall IDE colors (not shown). You are welcome to choose a theme.
 
-1. To close the Chat tab, click the X.
-2. On the Welcome tab, review the content, and then click the X to close the tab.
+1. To close the Chat tab, click the **X**.
+2. On the Welcome tab, review the content, and then click the **X** to close the tab.
 3. Go to the next step.
 
+### Step 7
 
--- Step 7:
-1. To view the Explorer window, in the left sidebar, click the Exploration (two folders) icon.
-2. In the Explorer window, click Open Folder.
-3. In the Open Folder search box, choose /home/sagemaker-user/.
-4. Click OK.
+1. To view the Explorer window, in the left sidebar, click the **Exploration (two folders) icon**.
+2. In the Explorer window, click **Open Folder**.
+3. In the Open Folder search box, choose `/home/sagemaker-user/`.
+4. Click **OK**.
 5. Go to the next step.
 
+### Step 8
 
--- Step 8:
-1. In the pop-up box, choose the check box to select Trust the authors of all files ....
-2. Click Yes, I trust the authors.
-
-- If the Welcome tab reappears, click the X to close the tab.
-
+1. In the pop-up box, choose the check box to select **Trust the authors of all files ...**.
+2. Click **Yes, I trust the authors**.  
+   - If the Welcome tab reappears, click the **X** to close the tab.
 3. Go to the next step.
 
+### Step 9
 
-
--- Step 9:
-1. In the left sidebar, click the menu icon (three lines) to expand the menu.
-2. Choose Terminal.
-3. Choose New Terminal.
-
--  A command shell is launched.
-
+1. In the left sidebar, click the **menu icon (three lines)** to expand the menu.
+2. Choose **Terminal**.
+3. Choose **New Terminal**.  
+   - A command shell is launched.
 4. Go to the next step.
 
+### Step 10
 
+1. In the bottom bash terminal window, at the command prompt, run:  
 
--- Step 10:
-1. In the bottom bash terminal window, at the command prompt, run (type the command and press Enter):
+   ```bash
+   mkdir cdkapp
+   ```
 
-mkdir cdkapp
+   - You can also copy-paste this text. If you receive an undefined value when you paste this, try again. The code should look similar to what is displayed in the screenshot example.
 
-- You can also copy-paste this text. If you receive an undefined value when you paste this, try again. The code should look similar to what is displayed in the screenshot example.
+2. In the left Explorer window, review to see that the `cdkapp` directory was created.
+3. To change the directory to `cdkapp`, run:  
 
-2. In the left Explorer window, review to see that the cdkapp directory was created.
-3. To change the directory to cdkapp, in the bottom terminal, run:
+   ```bash
+   cd cdkapp
+   ```
 
-cd cdkapp
+4. To initialize the cdk process, run:  
 
-4. To initialize the cdk process, run:
+   ```bash
+   cdk init -a app -l=python
+   ```
 
-cdk init -a app -l=python
-
-- The "cdk init" command uses the name of the project folder to name various elements of the project, including classes, subfolders, and files. 
-- Using the "-a" option, you can specify an app name.
-- Using the "-l" option, you can specify the programming language.
+   - The "cdk init" command uses the name of the project folder to name various elements of the project, including classes, subfolders, and files. 
+   - Using the "-a" option, you can specify an app name.
+   - Using the "-l" option, you can specify the programming language.
 
 5. Go to the next step.
 
 
 
 
--- Step 11:
+### Step 11:
 1. Review the cdk initialize process log and the virtual environment creation details.
 
 - A virtual environment contains a specific Python interpreter, software libraries, and binaries that are needed to support a project (library or application). 
@@ -124,7 +123,7 @@ cdk init -a app -l=python
 
 
 
--- Step 12:
+### Step 12:
 1. In the left Explorer window, click to expand the cdkapp directory.
 2. Open (double-click) the requirements.txt file.
 3. In the top requirements.txt window, review the file contents.
@@ -139,7 +138,7 @@ source .venv/bin/activate
 
 
 
--- Step 13:
+### Step 13:
 1. In the AWS Management Console browser tab, navigate to the Amazon S3 console.
 
 - Remember, on the top navigation bar, you can use the Services search box (or click Services) to navigate to a different service console.
@@ -150,7 +149,7 @@ source .venv/bin/activate
 
 
 
--- Step 14:
+### Step 14:
 1. On the Objects tab, review the files that were created as part of the prebuild process.
 
 - The ci_genai_stack.py contains the resources that you build in the next steps. You can use this file as a reference to check that all the resources are configured in your stack.
@@ -166,17 +165,17 @@ source .venv/bin/activate
 
 
 
--- Step 15:
+### Step 15:
 1. Return to the Code Editor IDE browser tab.
 2. To change to the cdkapp subdirectory that was created by the cdk init process, in the bottom terminal window, run:
 
-cd cdkapp
+            cd cdkapp
 
 - Note that a cdkapp subfolder exists within the cdkapp directory.
 
 3. To download the userdata.sh file, replacing <userdata-uri> with the S3 URI that you just copied, run:
 
-aws s3 cp <userdata-uri> .
+            aws s3 cp <userdata-uri> .
 
 - Make sure to include the space and period (.) at the end of the command.
 
@@ -188,7 +187,7 @@ aws s3 cp <userdata-uri> .
 
 
 
--- Step 16:
+### Step 16:
 1. In the top userdata.sh window, review the file contents.
 
 - This file contains the libraries to be downloaded for the census application to run on an EC2 instance.
@@ -201,16 +200,17 @@ aws s3 cp <userdata-uri> .
 
 
 
--- Step 17:
+### Step 17:
 1. In the left Explorer window, open (double-click) the cdk.json file.
 2. In the top cdk.json window, scroll down to the line that reads: 
 
-"@aws-cdk/aws-ec2:restrictDefaultSecurityGroup": true,
+            "@aws-cdk/aws-ec2:restrictDefaultSecurityGroup": true,
 
 3. Change the "true" value to "false".
 
 - The line should now read:
-"@aws-cdk/aws-ec2:restrictDefaultSecurityGroup": false,
+  
+            "@aws-cdk/aws-ec2:restrictDefaultSecurityGroup": false,
 
 4. In the left sidebar, click the menu icon to expand the menu.
 5. Choose File, and then choose Save (not shown).
@@ -219,7 +219,7 @@ aws s3 cp <userdata-uri> .
 
 
 
--- Step 18:
+### Step 18:
 1. In the left Explorer window, in the cdkapp subfolder, open (double-click) the cdkapp_stack.py file.
 2. In the bottom footer bar on the Code Editor page, click Amazon Q.
 3. In the top search box, next to Resume Auto-Suggestions, review that the Auto-Suggestions are already in RUNNING state.
@@ -232,19 +232,19 @@ aws s3 cp <userdata-uri> .
 
 
 
--- Step 19:
+### Step 19:
 - In the next steps, using Amazon Q suggestions, you define a stack with AWS CDK constructs to build a 3-tier web application. The application consists of an Application Load Balancer, an EC2 instance, and an Amazon Relational Database Service (Amazon RDS) DB instance that is deployed in a virtual private cloud (VPC).
 
 1. In the top cdkapp_stack.py window, review the file contents.
 2. In the bottom terminal window, to move up one level in the directory, run:
 
-cd ..
+            cd ..
 
 3. Go to the next step.
 
 
 
--- Step 20:
+### Step 20:
 1. In the top cdkapp_stack.py window, in the aws_cdk import block, delete the existing import values, and then copy-paste the following:
 
 Duration,
@@ -261,7 +261,7 @@ aws_elasticloadbalancingv2 as elbv2,
 
 
 
--- Step 21:
+### Step 21:
 - In the cdkapp_stack.py file, make sure to indent the newly added constructs to avoid errors in the deployment process.
 
 - Make sure to properly close the constructs after adding the suggestions. Refer to the screenshots in the following steps for correct syntax and indentation, as AI generated code is not always 100% accurate.
@@ -270,7 +270,7 @@ aws_elasticloadbalancingv2 as elbv2,
 
 1. To create a VPC, in the top cdkapp_stack.py window, type:
 
-# create a vpc with IpAddresses 10.10.0.0/16, a NAT gateway, a public subnet, PRIVATE_WITH_EGRESS subnet and a RDS subnet
+       create a vpc with IpAddresses 10.10.0.0/16, a NAT gateway, a public subnet, PRIVATE_WITH_EGRESS subnet and a RDS subnet
 
 and press Enter.
 
@@ -288,10 +288,10 @@ and press Enter.
 
 
 
--- Step 22:
+### Step 22:
 1. To create a security group for the load balancer, type:
 
-# create a security group for the load balancer
+            create a security group for the load balancer
 
 and press Enter.
 
@@ -306,10 +306,10 @@ and press Enter.
 
 
 
--- Step 23:
+### Step 23:
 1. To create a security group for the RDS instance, type:
 
-# create a security group for the RDS instance
+            create a security group for the RDS instance
 
 and press Enter.
 
@@ -323,10 +323,10 @@ and press Enter.
 
 
 
--- Step 24:
+### Step 24:
 1. To create a security group for the EC2 instance, type:
 
-# create a security group for the EC2 instance
+            create a security group for the EC2 instance
 
 and press Enter.
 
@@ -336,10 +336,10 @@ and press Enter.
 
 
 
--- Step 25:
+### Step 25:
 1. To add inbound rules to the load balancer, type:
 
-# add ingress rules for the load balancer security group to allow all traffic on port 80
+            add ingress rules for the load balancer security group to allow all traffic on port 80
 
 and press Enter.
 
@@ -353,10 +353,10 @@ and press Enter.
 
 
 
--- Step 26:
+### Step 26:
 1. To allow traffic from the load balancer to the EC2 instance, type:
 
-# add ingress rule for the EC2 instance security group to allow 8443 traffic from the load balancer
+            add ingress rule for the EC2 instance security group to allow 8443 traffic from the load balancer
 
 and press Enter.
 
@@ -367,10 +367,10 @@ and press Enter.
 
 
 
--- Step 27:
+### Step 27:
 1. To allow traffic for the RDS DB instance from the EC2 instance on port 3306, type:
 
-# add ingress rule to RDS security group to allow 3306 traffic from EC2 security group
+            add ingress rule to RDS security group to allow 3306 traffic from EC2 security group
 
 and press Enter.
 
@@ -380,10 +380,10 @@ and press Enter.
 
 
 
--- Step 28:
+### Step 28:
 1. To allow traffic for the RDS DB instance from the EC2 instance on port 22, type:
 
-# add ingress rule for the RDS security group to allow 22 from the EC2 instance
+            add ingress rule for the RDS security group to allow 22 from the EC2 instance
 
 and press Enter.
 
@@ -393,11 +393,12 @@ and press Enter.
 
 
 
--- Step 29:
+### Step 29:
 1. To create an Amazon Aurora MySQL-Compatible Edition cluster, type:
 
-# create an rds aurora mysql cluster
-        cluster = rds.DatabaseCluster(self, "MyDatabase",
+   create an rds aurora mysql cluster
+
+           cluster = rds.DatabaseCluster(self, "MyDatabase",
             engine = rds.DatabaseClusterEngine.aurora_mysql(version = rds.AuroraMysqlEngineVersion.VER_3_04_0),
             # credentials using testuser and password1234!
             credentials = rds.Credentials.from_password("testuser", SecretValue.unsafe_plain_text("password1234!")),
@@ -419,7 +420,7 @@ and press Enter.
 
 
 
--- Step 30:
+### Step 30:
 1. Review the Aurora cluster construct. 
 
 - The cluster is created with the default database name, "Population", and the credentials are provided to connect to the cluster.
@@ -429,10 +430,10 @@ and press Enter.
 
 
 
--- Step 31:
+### Step 31:
 1. To create an Amazon Linux 2023 image, type:
 
-# define an Amazon Linux 2023 image amzn_linux
+            define an Amazon Linux 2023 image amzn_linux
 
 2. Review the Amazon Q suggestion.
 3. To accept the suggestion, press Tab.
@@ -440,10 +441,10 @@ and press Enter.
 
 
 
--- Step 32:
+### Step 32:
 1. To read the userdata.sh file, type:
 
-# read userdata.sh file from cdkapp directory using readlines
+            read userdata.sh file from cdkapp directory using readlines
 
 and press Enter.
 
@@ -453,10 +454,10 @@ and press Enter.
 
 
 
--- Step 33:
+### Step 33:
 1. To add lines from the userdata.sh file to ec2 UserData, type:
 
-# Add each line from the script to ec2 UserData
+            Add each line from the script to ec2 UserData
 
 and press Enter.
 
@@ -466,11 +467,11 @@ and press Enter.
 
 
 
--- Step 34:
+### Step 34:
 1. To create an EC2 instance for the web server in a private egress subnet, type:
 
-# create a t3.micro ec2 instance for the web server in a private egress subnet and vpc.availability_zones[0]
-
+            create a t3.micro ec2 instance for the web server in a private egress subnet and vpc.availability_zones[0]
+```bash
  ec2_instance = ec2.Instance(self, "MyInstance",
             instance_type = ec2.InstanceType("t3.micro"),
             machine_image = amzn_linux,
@@ -482,7 +483,7 @@ and press Enter.
             # add an existing role with name ec2_instance_role
             role = iam.Role.from_role_name(self, "ec2_instance_role", "ec2_instance_role")
         )
-
+```
 and press Enter.
 
 2. Go to the next step.
@@ -490,7 +491,7 @@ and press Enter.
 
 
 
--- Step 35:
+### Step 35:
 1. Review the ec2 instance construct.
 
 - A t3.micro instance is created with an Amazon Linux 2023 image in a private subnet and deploys the application specified in the userdata script.
@@ -498,7 +499,7 @@ and press Enter.
 
 2. To add a wait dependency on the RDS cluster, at the end of the construct, type:
 
-# add depends to ensure
+            add depends to ensure
 
 and press Enter.
 
@@ -508,10 +509,10 @@ and press Enter.
 
 
 
--- Step 36:
+### Step 36:
 1. To create a load balancer, type:
 
-# create a load balancer in the public subnet
+            create a load balancer in the public subnet
 
 and press Enter.
 
@@ -521,10 +522,10 @@ and press Enter.
 
 
 
--- Step 37:
+### Step 37:
 1. To create a listener for the load balancer, type:
 
-# add a listener on port 80 to the load balancer with open=True
+            add a listener on port 80 to the load balancer with open=True
 
 and press Enter.
 
@@ -534,10 +535,10 @@ and press Enter.
 
 
 
--- Step 38:
+### Step 38:
 1. To add targets to the load balancer, type:
 
-# add targets to the load balancer using port 80
+            add targets to the load balancer using port 80
 listener.add_targets("MyTargets", port=80 )
 
 and press Enter.
@@ -546,10 +547,10 @@ and press Enter.
 
 
 
--- Step 39:
+### Step 39:
 1. To deploy the web server after the the RDS DB cluster is available, type:
 
-# add depends on for the listener to wait for the ec2 instance 
+            add depends on for the listener to wait for the ec2 instance 
 
 and press Enter.
 
@@ -559,7 +560,7 @@ and press Enter.
 
 
 
--- Step 40:
+### Step 40:
 1. In the other browser tab, return to the lab-bucket page on the Amazon S3 console. 
 2. On the Objects tab, choose on the check box to select ci_genai_stack.py.
 
@@ -570,7 +571,7 @@ and press Enter.
 
 
 
--- Step 41:
+### Step 41:
 - The bootstrap process has been run as part of the lab prebuild process.
 
 1. Return to the Code Editor IDE browser tab.
@@ -584,7 +585,7 @@ cdk synth
 
 
 
--- Step 42:
+### Step 42:
 1. Review the stack details.
 2. To deploy the cdkapp stack, run:
 
@@ -594,7 +595,7 @@ cdk deploy
 
 
 
--- Step 43:
+### Step 43:
 1. Review the stack components.
 2. For "Do you wish to deploy these changes (y/n)?", type:
     y
@@ -603,7 +604,7 @@ and press Enter.
 3. Go to the next step.
 
 
--- Step 44:
+### Step 44:
 1. Review the stack components that are being deployed by the cdk process.
 
 - The deployment takes up to 15 minutes to be completed.
@@ -613,14 +614,14 @@ and press Enter.
 
 
 
--- Step 45:
+### Step 45:
 1. After the deployment is completed, review the stack ARN.
 2. Go to the next step.
 
 
 
 
--- Step 46:
+### Step 46:
 1. In the AWS Management Console browser tab, navigate to the AWS CloudFormation console.
 2. In the Stacks section, under Status, review to confirm that the status for the stack, CdkappStack, is CREATE_COMPLETE.
 3. Click CdkappStack.
@@ -629,7 +630,7 @@ and press Enter.
 
 
 
--- Step 47:
+### Step 47:
 1. In the CdkappStack window, click the Resources tab.
 
 - The logical IDs might differ from the example screenshot.
@@ -640,7 +641,7 @@ and press Enter.
 
 
 
--- Step 48:
+### Step 48:
 1. Click to expand MyLoadBalancer.
 
 - This logical ID might differ from the screenshot example.
@@ -654,14 +655,14 @@ and press Enter.
 
 
 
--- Step 49:
+### Step 49:
 1. In the Details section, review the load balancer details.
 2. Go to the next step.
 
 
 
 
--- Step 50:
+### Step 50:
 1. On the Listeners and rules tab, under Default action, click the target group that starts with Cdkapp-.
 
 - The target group opens in a new browser tab (or window).
@@ -672,20 +673,20 @@ and press Enter.
 
 
 
--- Step 51:
+### Step 51:
 1. In the Details section, review the target group details.
 2. Go to the next step.
 
 
 
--- Step 52:
+### Step 52:
 1. On the Targets tab, click Register targets.
 2. Go to the next step.
 
 
 
 
--- Step 53:
+### Step 53:
 1. In the Available instances section, choose the check box to select the CdkappStack/WebServer instance.
 2. For Ports for the selected instances, to replace the default value, type:
 
@@ -697,7 +698,7 @@ and press Enter.
 
 
 
--- Step 54:
+### Step 54:
 1. In the Review targets section, review the added instance.
 2. Click Register pending targets.
 3. Go to the next step.
@@ -705,14 +706,14 @@ and press Enter.
 
 
 
--- Step 55:
+### Step 55:
 1. On the Targets tab, review the instance details.
 2. Go to the next step.
 
 
 
 
--- Step 56:
+### Step 56:
 1. Under Health status, review to confirm that the health status is Healthy.
 
 - To update the health status, click the section's refresh icon. 
@@ -725,7 +726,7 @@ and press Enter.
 
 
 
--- Step 57:
+### Step 57:
 1. Under Load balancer, click the provided load balancer name.
 
 - The load balancer opens in a new browser tab (or window).
@@ -735,13 +736,13 @@ and press Enter.
 
 
 
--- Step 58:
+### Step 58:
 1. Under DNS name, click the copy icon to copy the load balancer URL.
 2. Go to the next step.
 
 
 
--- Step 59:
+### Step 59:
 1. To access the census application, in a new browser tab (or window) address bar, paste the load balancer URL that you just copied (not shown).
 
 - You should see the Population Facts page with year and country options.
@@ -757,7 +758,7 @@ and press Enter.
 
 
 
--- Step 60:
+### Step 60:
 1. Review the details of the population facts of Afghanistan in the year 1990.
 2. To return to the main page, click Back.
 
@@ -767,5 +768,5 @@ and press Enter.
 
 
 
--- Step 61:
+### Step 61:
 Congratulations! You've completed the Practice section.
